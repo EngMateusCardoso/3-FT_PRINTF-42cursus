@@ -6,7 +6,7 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 23:47:30 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/04 23:50:03 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/06/05 00:04:48 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include "Libft/libft.h"
+# include "../Libft/libft.h"
 
 int		ft_printf(const char *str, ...);
 
