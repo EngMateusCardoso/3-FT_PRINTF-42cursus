@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   formats.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/04 23:47:30 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/05 08:23:01 by matcardo         ###   ########.fr       */
+/*   Created: 2022/06/05 08:18:49 by matcardo          #+#    #+#             */
+/*   Updated: 2022/06/05 08:36:28 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include "../Libft/libft.h"
+int		putstr(char *str)
+{
+	int i;
 
-int		ft_printf(const char *str, ...);
-int		putstr(char *str);
-
-#endif
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+		ft_putchar_fd(str[i++], 1);
+	return(i);
+}
