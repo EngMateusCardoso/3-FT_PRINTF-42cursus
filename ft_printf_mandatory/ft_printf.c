@@ -6,7 +6,7 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 20:29:03 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/05 08:42:40 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/06/05 09:16:48 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	conversion(const char *format_str, va_list args)
 	else if (*format_str == 'p')
 		ft_putchar_fd('P', 1);
 	else if (*format_str == 'd')
-		ft_putchar_fd('D', 1);
+		return (putnbr(va_arg(args, int)));
 	else if (*format_str == 'i')
-		ft_putchar_fd('I', 1);
+		return (putnbr(va_arg(args, int)));
 	else if (*format_str == 'u')
 		ft_putchar_fd('U', 1);
 	else if (*format_str == 'x')
@@ -73,7 +73,10 @@ int	ft_printf(const char *format_str, ...)
 int main(void)
 {
 	char c = 'c';
+	int num = 42;
+	int num2 = -42;
 	int count;
+
 	count = ft_printf("Angularjs.\n");
 	printf("11 = %d\n", count);
 	count = ft_printf("charactere: %c\n", c);
@@ -85,6 +88,8 @@ int main(void)
 	count = ft_printf("string: %s %s\n", "hello", "world!");
 	printf("21 = %d\n", count);
 	count = ft_printf("string: %s %c\n", "hello", 'A');
+	printf("16 = %d\n", count);
+	count = ft_printf("Decimal: %d %i\n", num, num2);
 	printf("16 = %d\n", count);
 	count = ft_printf("Percent: %%\n");
 	printf("11 = %d\n", count);
