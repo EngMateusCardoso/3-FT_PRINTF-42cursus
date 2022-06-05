@@ -6,7 +6,7 @@
 #    By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/07 17:02:42 by acesar-l          #+#    #+#              #
-#    Updated: 2022/04/28 17:33:18 by matcardo         ###   ########.fr        #
+#    Updated: 2022/06/05 01:05:24 by matcardo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ LIB			= ar -rcs
 # c = O arquivo especificado é sempre criado se não existir
 # s = indexa da mesma forma que o ranlib
 
-CC			= gcc
+CC			= gcc 
 # O Workspace da 42 já é configurado para você usar o compilador correto
 FLAGS		= -Wall -Werror -Wextra
 .c.o:
