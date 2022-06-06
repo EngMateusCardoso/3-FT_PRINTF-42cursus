@@ -6,7 +6,7 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 20:29:03 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/06 04:53:15 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/06/06 05:15:21 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,9 @@ int main(void)
 	printf("16 = %d\n", count);
 	count = ft_printf("unsigned: %u %u %u %u\n", num3, num4, num, num2);
 	printf("unsigned: %u %u %u %u\n", num3, num4, num, num2);
+	printf("39 = %d\n", count);
+	count = ft_printf("unsigned: %x %X %x %X\n", num3, num4, num, num2);
+	printf("unsigned: %x %X %x %X\n", num3, num4, num, num2);
 	printf("39 = %d\n", count);
 	count = ft_printf("Percent: %%\n");
 	printf("11 = %d\n", count);
