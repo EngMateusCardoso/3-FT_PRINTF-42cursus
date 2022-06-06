@@ -6,17 +6,24 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 08:18:49 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/05 09:13:19 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/06/06 04:52:50 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+#include <stdio.h> // Lembre de apagar <-----------------------------------------------
 int	ft_count_base(int n)
 {
 	if (n <= 9 && n >= -9)
 		return (1);
 	return (ft_count_base(n / 10) * 10);
+}
+
+unsigned int	ft_count_baseu(unsigned int n)
+{
+	if (n <= 9)
+		return (1);
+	return ((unsigned int)(ft_count_baseu(n / 10) * 10));
 }
 
 int	putnbr(int n)
@@ -34,6 +41,26 @@ int	putnbr(int n)
 		count++;
 		n_iter *= -1;
 	}
+	while (base >= 1)
+	{
+		n = n_iter / base;
+		ft_putchar_fd(n + '0', 1);
+		count++;
+		n_iter -= base * n;
+		base = base / 10;
+	}
+	return(count);
+}
+
+int	putnbru(unsigned int n)
+{
+	unsigned int	n_iter;
+	unsigned int	base;
+	int	count;
+
+	count = 0;
+	n_iter = n;
+	base = ft_count_baseu(n);
 	while (base >= 1)
 	{
 		n = n_iter / base;

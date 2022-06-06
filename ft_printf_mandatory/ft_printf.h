@@ -6,7 +6,7 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 23:47:30 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/05 09:10:37 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/06/06 02:05:36 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@
 int		ft_printf(const char *str, ...);
 int		putstr(char *str);
 int		putnbr(int n);
+int		putnbru(unsigned int n);
 
 #endif

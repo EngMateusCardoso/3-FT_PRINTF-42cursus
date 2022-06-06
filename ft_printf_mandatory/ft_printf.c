@@ -6,12 +6,12 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 20:29:03 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/05 09:16:48 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/06/06 04:53:15 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+#include <stdio.h> // Lembre de apagar <-----------------------------------------------
 int	conversion(const char *format_str, va_list args)
 {
 	if (*format_str == 'c')
@@ -25,7 +25,7 @@ int	conversion(const char *format_str, va_list args)
 	else if (*format_str == 'i')
 		return (putnbr(va_arg(args, int)));
 	else if (*format_str == 'u')
-		ft_putchar_fd('U', 1);
+		return (putnbru(va_arg(args, unsigned int)));
 	else if (*format_str == 'x')
 		ft_putchar_fd('X', 1);
 	else if (*format_str == 'X')
@@ -75,6 +75,8 @@ int main(void)
 	char c = 'c';
 	int num = 42;
 	int num2 = -42;
+	unsigned int num3 = 420;
+	unsigned int num4 = -42;
 	int count;
 
 	count = ft_printf("Angularjs.\n");
@@ -91,6 +93,9 @@ int main(void)
 	printf("16 = %d\n", count);
 	count = ft_printf("Decimal: %d %i\n", num, num2);
 	printf("16 = %d\n", count);
+	count = ft_printf("unsigned: %u %u %u %u\n", num3, num4, num, num2);
+	printf("unsigned: %u %u %u %u\n", num3, num4, num, num2);
+	printf("39 = %d\n", count);
 	count = ft_printf("Percent: %%\n");
 	printf("11 = %d\n", count);
 	return(0);
