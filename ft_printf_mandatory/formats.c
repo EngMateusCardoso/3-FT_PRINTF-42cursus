@@ -6,12 +6,13 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 08:18:49 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/06 04:52:50 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/06/07 12:34:24 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h> // Lembre de apagar <-----------------------------------------------
+
 int	ft_count_base(int n)
 {
 	if (n <= 9 && n >= -9)
@@ -24,6 +25,43 @@ unsigned int	ft_count_baseu(unsigned int n)
 	if (n <= 9)
 		return (1);
 	return ((unsigned int)(ft_count_baseu(n / 10) * 10));
+}
+
+unsigned int	ft_count_basehex(unsigned int n)
+{
+	if (n <= 15)
+		return (1);
+	return ((unsigned int)(ft_count_basehex(n / 16) * 16));
+}
+
+char	hex(unsigned int n, int isUpper)
+{
+	char	*hexstrlower = "0123456789abcdef";
+	char	*hexstrupper = "0123456789ABCDEF";
+
+	if (isUpper)
+		return(hexstrupper[(unsigned int)n]);
+	return(hexstrlower[(unsigned int)n]);
+}
+
+int		puthex(unsigned int n, int flag)
+{
+	unsigned int	n_iter;
+	unsigned int	base;
+	int	count;
+
+	count = 0;
+	n_iter = n;
+	base = ft_count_basehex(n);
+	while (base >= 1)
+	{
+		n = n_iter / base;
+		ft_putchar_fd(hex(n, flag), 1);
+		count++;
+		n_iter -= base * n;
+		base = base / 16;
+	}
+	return(count);
 }
 
 int	putnbr(int n)
