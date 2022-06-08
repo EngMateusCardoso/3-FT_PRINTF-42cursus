@@ -6,12 +6,12 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 20:29:03 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/08 02:44:22 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/06/08 04:45:30 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h> // Lembre de apagar <-----------------------------------------------
+
 int	conversion(const char *format_str, va_list args)
 {
 	if (*format_str == 'c')
@@ -60,16 +60,18 @@ int	ft_printf(const char *format_str, ...)
 			size_flags = count_flags(format_str);
 			while (size_flags-- > 0)
 				format_str++;
-			continue;
+			continue ;
 		}
 		ft_putchar_fd(*format_str, 1);
 		format_str++;
 		count++;
 	}
 	va_end(args);
-	return(count);//22
+	return (count);
 }
 
+
+#include <stdio.h>
 int main(void)
 {
 	char c = 'c';
@@ -77,7 +79,7 @@ int main(void)
 	int num2 = -42;
 	unsigned int num3 = 42;
 	unsigned int num4 = -42;
-	int count;
+	int count, count2;
 
 	count = ft_printf("Angularjs.\n");
 	printf("11 = %d\n", count);
@@ -99,8 +101,9 @@ int main(void)
 	count = ft_printf("hex: %x %X %x %X\n", num, num, num2, num2);
 	//count = printf("hex: %x %X %x %X\n", num, num, num2, num2);
 	printf("29 = %d\n", count);
-	printf("%p %p %p %p %p\n", &num, &num2, &num3, &num4, &c);
-	ft_printf("%p %p %p %p %p\n", &num, &num2, &num3, &num4, &c);
+	count2 = printf("%p %p %p %p %p\n", &num, &num2, &num3, &num4, &c);
+	count = ft_printf("%p %p %p %p %p\n", &num, &num2, &num3, &num4, &c);
+	printf("%d = %d\n", count, count2);
 	count = ft_printf("Percent: %%\n");
 	printf("11 = %d\n", count);
 	return(0);

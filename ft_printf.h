@@ -6,16 +6,16 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 23:47:30 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/08 02:44:40 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/06/08 04:45:11 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdarg.h>
 # include <unistd.h>
-# include "../Libft/libft.h"
+# include "./Libft/libft.h"
 
 int		ft_printf(const char *str, ...);
 int		putstr(char *str);
