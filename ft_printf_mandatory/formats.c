@@ -6,7 +6,7 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 08:18:49 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/07 12:34:24 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/06/08 02:55:25 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ unsigned int	ft_count_basehex(unsigned int n)
 	return ((unsigned int)(ft_count_basehex(n / 16) * 16));
 }
 
+unsigned long int	ft_count_basehexlong(unsigned long int n)
+{
+	//printf("--%lu\n",n);
+	if (n <= 15)
+		return (1);
+	return ((unsigned long int)(ft_count_basehexlong(n / 16) * 16));
+}
+
 char	hex(unsigned int n, int isUpper)
 {
 	char	*hexstrlower = "0123456789abcdef";
@@ -42,6 +50,16 @@ char	hex(unsigned int n, int isUpper)
 	if (isUpper)
 		return(hexstrupper[(unsigned int)n]);
 	return(hexstrlower[(unsigned int)n]);
+}
+
+char	hexlong(unsigned long int n, int isUpper)
+{
+	char	*hexstrlower = "0123456789abcdef";
+	char	*hexstrupper = "0123456789ABCDEF";
+
+	if (isUpper)
+		return(hexstrupper[(unsigned long int)n]);
+	return(hexstrlower[(unsigned long int)n]);
 }
 
 int		puthex(unsigned int n, int flag)
@@ -120,4 +138,34 @@ int		putstr(char *str)
 	while (str[i])
 		ft_putchar_fd(str[i++], 1);
 	return(i);
+}
+
+int		puthexlong(unsigned long int n, int flag)
+{
+	unsigned long int	n_iter;
+	unsigned long int	base;
+	int	count;
+
+	count = 0;
+	n_iter = n;
+	base = ft_count_basehexlong(n);
+	//printf("--%lu\n",base);
+	while (base >= 1)
+	{
+		n = n_iter / base;
+		ft_putchar_fd(hexlong(n, flag), 1);
+		count++;
+		n_iter -= base * n;
+		base = base / 16;
+	}
+	return(count);
+}
+
+int		putptr(unsigned long int n)
+{
+	int	count;
+	
+	write(1, "0x", 2);
+	count = puthexlong(n, 0) + 2;
+	return(count);
 }

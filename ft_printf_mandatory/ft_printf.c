@@ -6,7 +6,7 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 20:29:03 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/07 12:36:24 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/06/08 02:44:22 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	conversion(const char *format_str, va_list args)
 	else if (*format_str == 's')
 		return (putstr(va_arg(args, char *)));
 	else if (*format_str == 'p')
-		ft_putchar_fd('P', 1);
+		return (putptr(va_arg(args, unsigned long int)));
 	else if (*format_str == 'd')
 		return (putnbr(va_arg(args, int)));
 	else if (*format_str == 'i')
@@ -99,6 +99,8 @@ int main(void)
 	count = ft_printf("hex: %x %X %x %X\n", num, num, num2, num2);
 	//count = printf("hex: %x %X %x %X\n", num, num, num2, num2);
 	printf("29 = %d\n", count);
+	printf("%p %p %p %p %p\n", &num, &num2, &num3, &num4, &c);
+	ft_printf("%p %p %p %p %p\n", &num, &num2, &num3, &num4, &c);
 	count = ft_printf("Percent: %%\n");
 	printf("11 = %d\n", count);
 	return(0);
