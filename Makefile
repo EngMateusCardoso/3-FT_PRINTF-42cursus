@@ -6,15 +6,17 @@
 #    By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/05 00:17:40 by matcardo          #+#    #+#              #
-#    Updated: 2022/06/08 04:44:56 by matcardo         ###   ########.fr        #
+#    Updated: 2022/06/08 05:08:30 by matcardo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libftprintf.a
 
 #src
-SRC			= ft_printf.c \
-			formats.c
+SRC			= ft_printf.c 	\
+			formats.c		\
+			putnbr.c		\
+			putstr.c
 HEADER		= ft_printf.h
 #bonus
 #libft

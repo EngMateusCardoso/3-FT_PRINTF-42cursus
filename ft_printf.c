@@ -6,7 +6,7 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 20:29:03 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/08 04:45:30 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/06/08 05:09:08 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	conversion(const char *format_str, va_list args)
 	else if (*format_str == 'i')
 		return (putnbr(va_arg(args, int)));
 	else if (*format_str == 'u')
-		return (putnbru(va_arg(args, unsigned int)));
+		return (putnbr_u(va_arg(args, unsigned int)));
 	else if (*format_str == 'x')
 		return (puthex(va_arg(args, unsigned int), 0));
 	else if (*format_str == 'X')
@@ -108,3 +108,4 @@ int main(void)
 	printf("11 = %d\n", count);
 	return(0);
 }
+//*/

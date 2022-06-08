@@ -6,7 +6,7 @@
 #    By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/07 17:02:42 by acesar-l          #+#    #+#              #
-#    Updated: 2022/06/05 01:05:24 by matcardo         ###   ########.fr        #
+#    Updated: 2022/04/27 20:58:43 by matcardo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,16 +64,11 @@ HEADER		= libft.h
 
 RM			= rm -f
 LIB			= ar -rcs
-# r = Insire membro dos arquivos no arquivo (com substituição). Em que quaisquer membros existentes anteriormente são excluídos se seus nomes corresponderem aos que estão sendo adicionados.
-# c = O arquivo especificado é sempre criado se não existir
-# s = indexa da mesma forma que o ranlib
 
-CC			= gcc 
-# O Workspace da 42 já é configurado para você usar o compilador correto
+CC			= gcc
 FLAGS		= -Wall -Werror -Wextra
 .c.o:
 			${CC} ${FLAGS} -c $< -o ${<:.c=.o}
-# $< primeiro pré requisito
 
 ${NAME}:	${OBJS} ${HEADER}
 			${LIB} ${NAME} ${OBJS}

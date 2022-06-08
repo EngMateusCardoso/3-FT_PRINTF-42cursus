@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   putstr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 06:31:57 by matcardo          #+#    #+#             */
-/*   Updated: 2022/04/22 06:57:37 by matcardo         ###   ########.fr       */
+/*   Created: 2022/06/08 04:54:41 by matcardo          #+#    #+#             */
+/*   Updated: 2022/06/08 05:05:20 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strdup(const char *src)
+int		putstr(char *str)
 {
-	size_t	len;
-	char	*target;
+	int i;
 
-	len = ft_strlen(src) + 1;
-	target = (char *)ft_calloc(len, sizeof(char));
-	if (target)
-		ft_strlcpy(target, src, len);
-	return (target);
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+		ft_putchar_fd(str[i++], 1);
+	return(i);
 }

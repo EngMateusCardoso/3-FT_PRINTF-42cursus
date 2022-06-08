@@ -6,40 +6,24 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 08:18:49 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/08 02:55:25 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/06/08 05:07:14 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h> // Lembre de apagar <-----------------------------------------------
 
-int	ft_count_base(int n)
-{
-	if (n <= 9 && n >= -9)
-		return (1);
-	return (ft_count_base(n / 10) * 10);
-}
-
-unsigned int	ft_count_baseu(unsigned int n)
-{
-	if (n <= 9)
-		return (1);
-	return ((unsigned int)(ft_count_baseu(n / 10) * 10));
-}
-
-unsigned int	ft_count_basehex(unsigned int n)
+unsigned int	count_base_hex(unsigned int n)
 {
 	if (n <= 15)
 		return (1);
-	return ((unsigned int)(ft_count_basehex(n / 16) * 16));
+	return ((unsigned int)(count_base_hex(n / 16) * 16));
 }
 
-unsigned long int	ft_count_basehexlong(unsigned long int n)
+unsigned long int	count_base_long_hex(unsigned long int n)
 {
-	//printf("--%lu\n",n);
 	if (n <= 15)
 		return (1);
-	return ((unsigned long int)(ft_count_basehexlong(n / 16) * 16));
+	return ((unsigned long int)(count_base_long_hex(n / 16) * 16));
 }
 
 char	hex(unsigned int n, int isUpper)
@@ -52,7 +36,7 @@ char	hex(unsigned int n, int isUpper)
 	return(hexstrlower[(unsigned int)n]);
 }
 
-char	hexlong(unsigned long int n, int isUpper)
+char	long_hex(unsigned long int n, int isUpper)
 {
 	char	*hexstrlower = "0123456789abcdef";
 	char	*hexstrupper = "0123456789ABCDEF";
@@ -70,7 +54,7 @@ int		puthex(unsigned int n, int flag)
 
 	count = 0;
 	n_iter = n;
-	base = ft_count_basehex(n);
+	base = count_base_hex(n);
 	while (base >= 1)
 	{
 		n = n_iter / base;
@@ -82,65 +66,7 @@ int		puthex(unsigned int n, int flag)
 	return(count);
 }
 
-int	putnbr(int n)
-{
-	long int	n_iter;
-	int			base;
-	int			count;
-
-	count = 0;
-	n_iter = n;
-	base = ft_count_base(n);
-	if (n < 0)
-	{
-		ft_putchar_fd('-', 1);
-		count++;
-		n_iter *= -1;
-	}
-	while (base >= 1)
-	{
-		n = n_iter / base;
-		ft_putchar_fd(n + '0', 1);
-		count++;
-		n_iter -= base * n;
-		base = base / 10;
-	}
-	return(count);
-}
-
-int	putnbru(unsigned int n)
-{
-	unsigned int	n_iter;
-	unsigned int	base;
-	int	count;
-
-	count = 0;
-	n_iter = n;
-	base = ft_count_baseu(n);
-	while (base >= 1)
-	{
-		n = n_iter / base;
-		ft_putchar_fd(n + '0', 1);
-		count++;
-		n_iter -= base * n;
-		base = base / 10;
-	}
-	return(count);
-}
-
-int		putstr(char *str)
-{
-	int i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
-		ft_putchar_fd(str[i++], 1);
-	return(i);
-}
-
-int		puthexlong(unsigned long int n, int flag)
+int		put_long_hex(unsigned long int n, int flag)
 {
 	unsigned long int	n_iter;
 	unsigned long int	base;
@@ -148,12 +74,11 @@ int		puthexlong(unsigned long int n, int flag)
 
 	count = 0;
 	n_iter = n;
-	base = ft_count_basehexlong(n);
-	//printf("--%lu\n",base);
+	base = count_base_long_hex(n);
 	while (base >= 1)
 	{
 		n = n_iter / base;
-		ft_putchar_fd(hexlong(n, flag), 1);
+		ft_putchar_fd(long_hex(n, flag), 1);
 		count++;
 		n_iter -= base * n;
 		base = base / 16;
@@ -166,6 +91,6 @@ int		putptr(unsigned long int n)
 	int	count;
 	
 	write(1, "0x", 2);
-	count = puthexlong(n, 0) + 2;
+	count = put_long_hex(n, 0) + 2;
 	return(count);
 }

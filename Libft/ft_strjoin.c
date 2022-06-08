@@ -6,17 +6,12 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 21:19:56 by matcardo          #+#    #+#             */
-/*   Updated: 2022/04/28 19:46:46 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/04/27 07:22:20 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-Allocates (with malloc(3)) and returns a new
-string, which is the result of the concatenation
-of ’s1’ and ’s2’.
-*/
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*target;

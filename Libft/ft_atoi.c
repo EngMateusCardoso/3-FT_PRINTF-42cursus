@@ -6,7 +6,7 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:14:33 by matcardo          #+#    #+#             */
-/*   Updated: 2022/04/28 19:38:35 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/04/26 23:01:13 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(const char *nptr)
 
 	sign = 1;
 	result = 0;
-	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13)) //pular espaço
+	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13))
 		nptr++;
 	if (*nptr == '-')
 	{
@@ -29,6 +29,6 @@ int	ft_atoi(const char *nptr)
 	else if (*nptr == '+')
 		nptr++;
 	while (ft_isdigit(*nptr))
-		result = result * 10 + (*nptr++ - 48); //'0' = 48
+		result = result * 10 + (*nptr++ - 48);
 	return (result * sign);
 }
