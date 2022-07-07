@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   formats.c                                          :+:      :+:    :+:   */
+/*   puthex.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 08:18:49 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/08 05:23:55 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/07/07 16:25:54 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,21 @@ unsigned long int	count_base_hex(unsigned long int n)
 
 char	hex(unsigned long int n, int isUpper)
 {
-	char	*hexstrlower = "0123456789abcdef";
-	char	*hexstrupper = "0123456789ABCDEF";
+	char	*hexstrlower;
+	char	*hexstrupper;
 
+	hexstrlower = "0123456789abcdef";
+	hexstrupper = "0123456789ABCDEF";
 	if (isUpper)
-		return(hexstrupper[(unsigned long int)n]);
-	return(hexstrlower[(unsigned long int)n]);
+		return (hexstrupper[(unsigned long int)n]);
+	return (hexstrlower[(unsigned long int)n]);
 }
 
-int		puthex(unsigned long int n, int flag)
+int	puthex(unsigned long int n, int flag)
 {
 	unsigned long int	n_iter;
 	unsigned long int	base;
-	int	count;
+	int					count;
 
 	count = 0;
 	n_iter = n;
@@ -46,14 +48,19 @@ int		puthex(unsigned long int n, int flag)
 		n_iter -= base * n;
 		base = base / 16;
 	}
-	return(count);
+	return (count);
 }
 
-int		putptr(unsigned long int n)
+int	putptr(unsigned long int n)
 {
 	int	count;
-	
+
+	if (!n)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
 	write(1, "0x", 2);
 	count = puthex(n, 0) + 2;
-	return(count);
+	return (count);
 }

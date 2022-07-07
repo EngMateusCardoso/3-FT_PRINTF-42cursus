@@ -6,7 +6,7 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 20:29:03 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/08 05:22:18 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/07/07 16:25:25 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	conversion(const char *format_str, va_list args)
 	else if (*format_str == 'X')
 		return (puthex(va_arg(args, unsigned int), 1));
 	else if (*format_str == '%')
+		ft_putchar_fd('%', 1);
+	else
 		ft_putchar_fd('%', 1);
 	return (1);
 }
@@ -69,43 +71,3 @@ int	ft_printf(const char *format_str, ...)
 	va_end(args);
 	return (count);
 }
-
-
-#include <stdio.h>
-int main(void)
-{
-	char c = 'c';
-	int num = 42;
-	int num2 = -42;
-	unsigned int num3 = 42;
-	unsigned int num4 = -42;
-	int count, count2;
-
-	count = ft_printf("Angularjs.\n");
-	printf("11 = %d\n", count);
-	count = ft_printf("charactere: %c\n", c);
-	printf("14 = %d\n", count);
-	count = ft_printf("charactere: %c outro c %c\n", c);
-	printf("24 = %d\n", count);
-	count = ft_printf("string: %s\n", "hello");
-	printf("14 = %d\n", count);
-	count = ft_printf("string: %s %s\n", "hello", "world!");
-	printf("21 = %d\n", count);
-	count = ft_printf("string: %s %c\n", "hello", 'A');
-	printf("16 = %d\n", count);
-	count = ft_printf("Decimal: %d %i\n", num, num2);
-	printf("16 = %d\n", count);
-	count = ft_printf("unsigned: %u %u %u %u\n", num3, num4, num, num2);
-	printf("unsigned: %u %u %u %u\n", num3, num4, num, num2);
-	printf("39 = %d\n", count);
-	count = ft_printf("hex: %x %X %x %X\n", num, num, num2, num2);
-	//count = printf("hex: %x %X %x %X\n", num, num, num2, num2);
-	printf("29 = %d\n", count);
-	count2 = printf("%p %p %p %p %p\n", &num, &num2, &num3, &num4, &c);
-	count = ft_printf("%p %p %p %p %p\n", &num, &num2, &num3, &num4, &c);
-	printf("%d = %d\n", count, count2);
-	count = ft_printf("Percent: %%\n");
-	printf("11 = %d\n", count);
-	return(0);
-}
-//*/

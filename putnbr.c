@@ -6,7 +6,7 @@
 /*   By: matcardo <matcardo@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 04:58:46 by matcardo          #+#    #+#             */
-/*   Updated: 2022/06/08 05:02:12 by matcardo         ###   ########.fr       */
+/*   Updated: 2022/07/07 16:26:19 by matcardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	putnbr(int n)
 		n_iter -= base * n;
 		base = base / 10;
 	}
-	return(count);
+	return (count);
 }
 
 unsigned int	ft_count_base_u(unsigned int n)
@@ -56,7 +56,7 @@ int	putnbr_u(unsigned int n)
 {
 	unsigned int	n_iter;
 	unsigned int	base;
-	int	count;
+	int				count;
 
 	count = 0;
 	n_iter = n;
@@ -69,5 +69,5 @@ int	putnbr_u(unsigned int n)
 		n_iter -= base * n;
 		base = base / 10;
 	}
-	return(count);
+	return (count);
 }
